@@ -32,7 +32,7 @@ cnn <- DBI::dbConnect(odbc::odbc(),dsn=dsn) # =den --> needs to go into config f
 ds <- DBI::dbGetQuery(cnn, sql) # actual extract
 DBI::dbDisconnect(cnn) # hang up the phone
 rm(dsn, cnn, sql) # clean up
-ds %>% readr::write_rds("./data-unshared/derived/00-ferry.rds",compress = "xz")
+ds %>% readr::write_rds("./data-private/derived/00-ferry.rds",compress = "xz")
 # ---- declare-functions -------------------------------------------------------
 
 

@@ -16,7 +16,7 @@ default:
   # path_output_description                             : !expr strftime(Sys.time(), "{directory_file_server}/data-private/derived/%Y-%m-%d/_description.md")
   # directory_meditech_triage                           : "//pedsis/peds/data/BBMC/ou-medicine"
   
-  # path_log_flow                                       : !expr strftime(Sys.time(), "data-unshared/log/%Y/%Y-%m/flow-%Y-%m-%d--%H-%M-%S.log")
+  # path_log_flow                                       : !expr strftime(Sys.time(), "data-private/log/%Y/%Y-%m/flow-%Y-%m-%d--%H-%M-%S.log")
   # path_log_flow                                       : !expr strftime(Sys.time(), "//pedsis/peds/data/BBMC/prairie-outpost/{project_name}/log/%Y/%Y-%m/flow-%Y-%m-%d--%H-%M-%S.log")
   
   # path_metadata_ss_dx                                 : "data-public/metadata/ss-dx.csv"
