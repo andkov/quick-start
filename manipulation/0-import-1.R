@@ -35,14 +35,7 @@ prints_folder <- paste0("./manipulation/prints/0-import-1/")
 if(!file.exists(prints_folder)){
   dir.create(file.path(prints_folder))
 }
-# Sets the default aesthetic feel for all graphs in the project.
-ggplot2::theme_set(
-  ggplot2::theme_bw(
-  )+
-    theme(
-      strip.background = element_rect(fill="grey95", color = NA)
-    )
-)
+
 
 # define URLs here, so that they can be recycled
 # Note FORWARD SLASHES(!!), copy-pasting from address line WILL need adjustment
@@ -69,7 +62,7 @@ dto[["dataset_name2"]] <- readr::read_csv(path_file2, trim_ws = T)
 dto
 
 # minimize (if needed) and store a local copy for quick assess and development
-# dto %>% readr::write_rds("./data-private/derived/00-import-1-small.rds",compress = "xz")
+# dto %>% readr::write_rds("./data-unshared/derived/00-import-1-small.rds",compress = "xz")
 
 
 # ---- inspect-data ------------------------------------------------------------
@@ -88,7 +81,7 @@ dto
 
 # ---- save-to-disk ------------------------------------------------------------
 # naming convention: step_id - step_name - cohort_id
-path_data_out <- "./data-private/derived/.../0-import-1.rds"
+path_data_out <- "./data-unshared/derived/.../0-import-1.rds"
 # ---- publish -----------------------------------------------------------------
 # naming convention: step_id - data_transfer_object - cohort_id
 # one report (.Rmd) per script (.R), unless report series
