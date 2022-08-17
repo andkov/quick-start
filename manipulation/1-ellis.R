@@ -27,14 +27,15 @@ options(width=100) # number of characters to display in the output (dflt = 80)
 #+ load-sources ----------------------------------------------------------------
 source("./scripts/common-functions.R")# functions sourced throughout the project
 
-#+ load-packages ---------------------------------------------------------------
+# ---- load-packages -----------------------------------------------------------
 # Choose to be greedy: load only what's needed
 # Three ways, from least (1) to most(3) greedy:
 # -- 1.Attach these packages so their functions don't need to be qualified: http://r-pkgs.had.co.nz/namespace.html#search-path
 library(ggplot2)   # graphs
 library(forcats)   # factors
-library(stringr)   # strings
+library(stringr)   # strings, but consider `stringi` as more general
 library(lubridate) # dates
+library(labelled)  # labels
 # -- 2.Import only certain functions of a package into the search path.
 import::from("magrittr", "%>%")
 # -- 3. Verify these packages are available on the machine, but their functions need to be qualified: http://r-pkgs.had.co.nz/namespace.html#search-path
@@ -42,13 +43,12 @@ requireNamespace("readr"    )# data import/export
 requireNamespace("readxl"   )# data import/export
 requireNamespace("tidyr"    )# tidy data
 requireNamespace("janitor"  )# tidy data
-requireNamespace("dplyr"    )# Avoid attaching dplyr, b/c its function names conflict with a lot of packages (esp base, stats, and plyr).
-requireNamespace("testit"   )# For asserting conditions meet expected patterns.
-
+requireNamespace("testit"   )# for asserting conditions meet expected patterns.
+requireNamespace("scales"   )# formatting
 #+ declare-globals -------------------------------------------------------------
 # figures will be printed into the following folder:
 (prints_folder <- paste0("./manipulation/0-ellis-prints/"))
-if(!file.exists(prints_folder)){dir.create(file.path(prints_folder))} # to make sure folder exists
+if (!fs::dir_exists(prints_folder)) { fs::dir_create(prints_folder) }
 
 #+ echo=F, results="asis" ------------------------------------------------------
 cat("\n# 2.Data ")
